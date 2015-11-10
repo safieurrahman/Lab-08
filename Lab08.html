@@ -1,0 +1,303 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<SCRIPT language="javascript">
+    
+var json;
+var min, value_save;
+var min1, value_save1;
+var min2, value_save2;
+	
+var form_created=false;
+var FormName ;
+function makeForm() {
+
+
+var myform=document.createElement("FORM");
+myform.setAttribute("id", "form");
+myform.setAttribute ("name","forms");
+var temp=document.getElementById("container");
+temp.appendChild(myform);
+form_created= true;
+FormName = prompt("Enter Form Name: ");
+
+var heading= document.getElementById("Header");
+heading.innerHTML=FormName;
+    
+    
+    
+var submit=document.createElement("button");
+submit.setAttribute("id", "submit");
+submit.innerHTML="Submit"
+document.getElementById("submit_div").appendChild(submit);
+submit.onclick="submitted()";
+    
+json = '{"form":[';
+    document.getElementById("submit").addEventListener("click", function () {
+        submitted();
+    });
+    
+
+
+
+
+
+    
+var button1=document.createElement("button");
+button1.innerHTML="Add Text"
+document.getElementById("div1").appendChild(button1);
+button1.onclick=function(){
+    
+        
+        var txt1 = document.createElement("input");
+        txt1.setAttribute("type","text");
+		txt1.setAttribute("id","text");
+	 	
+		var type = txt1.type;
+        var txtfield = prompt("Enter the label of the Text Field: ");
+        var y = document.createTextNode(txtfield);
+        var temp1 = document.getElementById ("form");
+		value_save = prompt("Please enter the value: ");
+		txt1.setAttribute("value",value_save);
+	    min = prompt ("Enter the miniumum number of letters: ");
+        temp1.appendChild(y);
+        temp1.appendChild(txt1);
+	
+		var a = document.createElement("br");
+		temp1.appendChild(a);
+    
+        json+='{"element":"txt1", "type":"text","name":"'+txtfield+'"},';
+         
+};
+    
+var button2=document.createElement("button");
+button2.innerHTML="Add Password"
+document.getElementById("div2").appendChild(button2);
+button2.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","password");
+                    var txtfield = prompt("Enter the label of the Password Field: ");
+					value_save1 = prompt("Please enter the value: ");
+					txt1.setAttribute("value",value_save1);
+					min1 = prompt ("Enter the miniumum number of letters: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+	
+	var a = document.createElement("br");
+	temp1.appendChild(a);
+	
+                };
+    
+    
+    
+var button4=document.createElement("button");
+button4.innerHTML="Add Radio"
+document.getElementById("div4").appendChild(button4);
+button4.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","radio");
+                    var txtfield = prompt("Enter the label of the Radio Button: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+	
+	var a = document.createElement("br");
+	temp1.appendChild(a);
+                    
+                };
+
+    
+var button5=document.createElement("button");
+button5.innerHTML="Add Check"
+document.getElementById("div5").appendChild(button5);
+    
+    
+var button6=document.createElement("button");
+button6.innerHTML="Add File"
+document.getElementById("div6").appendChild(button6);
+
+    
+var button8=document.createElement("button");
+button8.innerHTML="Add Number"
+document.getElementById("div8").appendChild(button8);
+    
+var button9=document.createElement("button");
+button9.innerHTML="Add Keygen"
+document.getElementById("div9").appendChild(button9);
+    
+var button10=document.createElement("button");
+button10.innerHTML="Add Text Area"
+document.getElementById("div10").appendChild(button10);
+
+var button11=document.createElement("button");
+button11.innerHTML="Add Output"
+document.getElementById("div11").appendChild(button11);
+    
+    
+                button5.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","checkbox");
+                    var txtfield = prompt("Enter the label of the Text Field: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+                    
+                   
+                };
+                button6.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","file");
+                    var txtfield = prompt("Enter the label of the File Upload: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+					
+                };
+                button8.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","number");
+                    var txtfield = prompt("Enter the label of the Number: ");
+                    var y = document.createTextNode(txtfield);
+					value_save2 = prompt("Please enter the value: ");
+					txt1.setAttribute("value",value_save2);
+	    			min2 = prompt ("Enter the miniumum number of letters: ");
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+					
+                };
+                button9.onclick=function(){
+                    var txt1 = document.createElement("keygen");
+                    //txt1.setAttribute("type","keygen");
+                    var txtfield = prompt("Enter the label of the Text Field: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+					
+                };
+                button10.onclick=function(){
+                    var txt1 = document.createElement("textarea");
+                    //txt1.setAttribute("type","password");
+                    var txtfield = prompt("Enter the label of the Text Area Field: ");
+					var min = prompt ("Enter the miniumum number of letters: ");
+					var max = prompt ("Enter the maximum number of letters: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+					
+                };
+                button11.onclick=function(){
+                    var txt1 = document.createElement("input");
+                    txt1.setAttribute("type","output");
+                    var txtfield = prompt("Enter the label of the Output: ");
+					var min = prompt ("Enter the miniumum number of letters: ");
+					var max = prompt ("Enter the maximum number of letters: ");
+                    var y = document.createTextNode(txtfield);
+                    var temp1 = document.getElementById ("form");
+                    temp1.appendChild(y);
+                    temp1.appendChild(txt1);
+					
+					var a = document.createElement("br");
+					temp1.appendChild(a);
+					
+                };
+    
+form.insertBefore (txt1,form.lastChild);
+    
+
+}
+    
+
+    function submitted(){
+	
+    json = json.substring(0, json.length - 1);
+    json+="]}";
+    localStorage.setItem("json", json);
+    //alert(localStorage.getItem("json"));
+		
+//	var x = document.forms["form"]["text"].value;
+//	var y = document.forms["form"]["text"].min;
+		
+				
+	if (value_save.length < min)
+	{
+		window.alert ("Invalid text input");
+	}
+		
+	if (value_save1.length < min1)
+	{
+		window.alert ("Invalid password input");
+	}
+	
+}
+
+function readJson(){
+    if(!form_created){
+        makeForm();
+    }
+    var fetched_json = localStorage.getItem("json");
+    var obj=JSON.parse(fetched_json);
+    for(var i=0; i<obj.form.length;i++){
+        var input = document.createElement(obj.form[i].element);
+        input.name = obj.form[i].txt1;
+        //input.value = obj.form[i].value;
+        input.type = obj.form[i].type;
+        form.insertBefore (input,form.lastChild);
+    }
+    alert(obj.form[0].name);
+}
+
+    
+</SCRIPT>
+</HEAD>
+<BODY>
+    
+    <div id = "Header" style = "text-align:Center; font-family:Verdana; font-size: 20px; "> </div>
+    <div id="fooBar">
+        <button onclick="readJson()">Get from json</button>
+        <INPUT type="button" value="Create Form" onclick="makeForm()"/>
+        <br>
+        <br>
+            <div id="div1"></div>
+            <div id="div2"></div>
+            <div id="div3"></div>
+            <div id="div4"></div>
+            <div id="div5"></div>
+            <div id="div6"></div>
+            <div id="div7"></div>
+            <div id="div8"></div>
+            <div id="div9"></div>
+            <div id="div10"></div>
+            <div id="div11"></div>
+            <br>
+            <br>
+            <div id="submit_div"></div>
+    </div>
+	<div id= "container"> </div>
+	<br>
+	<br>
+    
+</BODY>
+</HTML>
